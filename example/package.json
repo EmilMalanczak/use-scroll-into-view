@@ -6,7 +6,7 @@
   "private": true,
   "dependencies": {
     "react": "link:../node_modules/react",
-    "react-dom": "^16.9.0",
+    "react-dom": "link:../node_modules/react-dom",
     "react-scripts": "^3.0.1",
     "use-scroll-into-view": "link:.."
   },

@@ -19,11 +19,7 @@ import { useMyHook } from 'use-scroll-into-view'
 
 const Example = () => {
   const example = useMyHook()
-  return (
-    <div>
-      {example}
-    </div>
-  )
+  return <div>{example}</div>
 }
 ```
 
