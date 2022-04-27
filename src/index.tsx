@@ -1,1 +1,1 @@
-export const useMyHook = () => null
+export { useScrollIntoView } from './use-scroll-into-view'

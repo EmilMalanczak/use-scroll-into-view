@@ -79,7 +79,9 @@ module.exports = {
     'linebreak-style': 'off',
     'function-paren-newline': 'off',
     indent: 'off',
-    'no-undef': 'off'
+    'no-undef': 'off',
+    'no-multi-spaces': 'off',
+    'operator-linebreak': 'off'
   },
   settings: {
     'import/resolver': {
