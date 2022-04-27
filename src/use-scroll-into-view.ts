@@ -1,13 +1,14 @@
-import { useCallback, useRef, useEffect } from 'react'
+import { useCallback, useRef, useEffect, useMemo } from 'react'
 
-import type { Alignment, Axis, Easing } from './types'
+import type { Alignment, Axis, EasingFunction } from './types'
 
-import { easeInOutQuad } from './helpers/easings'
+import { easeInOutQuad, getEasing } from './helpers/easings'
 import { getRelativePosition } from './helpers/get-relative-position'
 import { getScrollStartPosition } from './helpers/get-scroll-start-position'
 import { setScrollParams } from './helpers/set-scroll-params'
 import { useEventListener } from './hooks/use-event-listener'
 import { usePrefersReducedMotion } from './hooks/use-prefers-reduced-motion'
+import { Easing } from './types'
 
 type ScrollIntoViewAnimation = {
   /** target element alignment relatively to parent based on current axis */
@@ -24,8 +25,8 @@ export type ScrollIntoViewParams = {
   /** axis of scroll */
   axis?: Axis
 
-  /** custom mathematical easing function */
-  easing?: Easing
+  /** custom mathematical EasingFunction function */
+  easing?: EasingFunction | Easing
 
   /** additional distance between nearest edge and element */
   offset?: number
@@ -61,6 +62,16 @@ export const useScrollIntoView = <Target extends HTMLElement, Parent extends HTM
     }
   }
 
+  const easingFunction: EasingFunction = useMemo(() => {
+    const isEnumValue = Object.values(Easing).includes(easing as Easing)
+
+    if (isEnumValue) {
+      return getEasing(easing as Easing)
+    }
+
+    return easing as EasingFunction
+  }, [easing])
+
   const scrollIntoView = useCallback(
     ({ alignment = 'start' }: ScrollIntoViewAnimation = {}) => {
       shouldStop.current = false
@@ -89,10 +100,9 @@ export const useScrollIntoView = <Target extends HTMLElement, Parent extends HTM
         const now = performance.now()
         const elapsed = now - startTime.current
 
-        // easing timing progress
+        // EasingFunction timing progress
         const t = reducedMotion || duration === 0 ? 1 : elapsed / duration
-
-        const distance = start + change * easing(t)
+        const distance = start + change * easingFunction(t)
 
         setScrollParams({
           parent: scrollableRef.current,
@@ -113,7 +123,7 @@ export const useScrollIntoView = <Target extends HTMLElement, Parent extends HTM
       }
       animateScroll()
     },
-    [axis, duration, easing, isList, offset, onScrollFinish, reducedMotion]
+    [axis, duration, easingFunction, isList, offset, onScrollFinish, reducedMotion]
   )
 
   const handleStop = () => {
@@ -128,13 +138,9 @@ export const useScrollIntoView = <Target extends HTMLElement, Parent extends HTM
    * touchmove - any touchable device
    */
 
-  useEventListener('wheel', handleStop, {
-    passive: true
-  })
+  useEventListener('wheel', handleStop)
 
-  useEventListener('touchmove', handleStop, {
-    passive: true
-  })
+  useEventListener('touchmove', handleStop)
 
   // cleanup requestAnimationFrame
   useEffect(() => cancel, [])

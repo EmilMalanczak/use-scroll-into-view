@@ -81,7 +81,10 @@ module.exports = {
     indent: 'off',
     'no-undef': 'off',
     'no-multi-spaces': 'off',
-    'operator-linebreak': 'off'
+    'operator-linebreak': 'off',
+    'max-len': 'off',
+    'no-shadow': 'off',
+    '@typescript-eslint/no-shadow': ['error']
   },
   settings: {
     'import/resolver': {
