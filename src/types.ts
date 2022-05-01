@@ -5,6 +5,8 @@ export type Axis = 'x' | 'y'
 export type EasingFunction = (t: number) => number
 
 export enum Easing {
+  linear,
+
   easeInSine,
   easeOutSine,
   easeInOutSine,
