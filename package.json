@@ -4,7 +4,7 @@
   "description": "Better scrollIntoView functionality for React",
   "author": "EmilMalanczak",
   "license": "MIT",
-  "repository": "EmilMalanczak/use-scroll-into-view",
+  "repository": "https://github.com/EmilMalanczak/use-scroll-into-view",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
   "types": "dist/index.d.ts",
