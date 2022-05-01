@@ -1,6 +1,6 @@
 {
   "name": "use-scroll-into-view",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "Better scrollIntoView functionality for React",
   "author": "EmilMalanczak",
   "license": "MIT",
