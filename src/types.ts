@@ -7,9 +7,9 @@ export type EasingFunction = (t: number) => number
 export enum Easing {
   linear,
 
-  easeInSine,
-  easeOutSine,
-  easeInOutSine,
+  //   easeInSine,
+  //   easeOutSine,
+  //   easeInOutSine,
 
   easeInQuad,
   easeOutQuad,
@@ -25,25 +25,25 @@ export enum Easing {
 
   easeInQuint,
   easeOutQuint,
-  easeInOutQuint,
+  easeInOutQuint
 
-  easeInExpo,
-  easeOutExpo,
-  easeInOutExpo,
+  //   easeInExpo,
+  //   easeOutExpo,
+  //   easeInOutExpo,
 
-  easeInCirc,
-  easeOutCirc,
-  easeInOutCirc,
+  //   easeInCirc,
+  //   easeOutCirc,
+  //   easeInOutCirc,
 
-  easeInBack,
-  easeOutBack,
-  easeInOutBack,
+  //   easeInBack,
+  //   easeOutBack,
+  //   easeInOutBack,
 
-  easeInElastic,
-  easeOutElastic,
-  easeInOutElastic,
+  //   easeInElastic,
+  //   easeOutElastic,
+  //   easeInOutElastic,
 
-  easeInBounce,
-  easeOutBounce,
-  easeInOutBounce
+  //   easeInBounce,
+  //   easeOutBounce,
+  //   easeInOutBounce
 }
