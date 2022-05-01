@@ -46,7 +46,7 @@ export const useScrollIntoView = <Target extends HTMLElement, Parent extends HTM
   offset = 0,
   cancelable = true,
   isList = false
-}: ScrollIntoViewParams = {}) => {
+}: ScrollIntoViewParams) => {
   const frameID = useRef(0)
   const startTime = useRef(0)
   const shouldStop = useRef(false)
