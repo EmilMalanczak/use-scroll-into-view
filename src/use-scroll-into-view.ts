@@ -2,7 +2,7 @@ import { useCallback, useRef, useEffect, useMemo } from 'react'
 
 import type { Alignment, Axis, EasingFunction } from './types'
 
-import { easeInOutQuad, getEasing } from './helpers/easings'
+import { easeInOutQuad, getEasing } from './helpers/easings/easings'
 import { getRelativePosition } from './helpers/get-relative-position'
 import { getScrollStartPosition } from './helpers/get-scroll-start-position'
 import { setScrollParams } from './helpers/set-scroll-params'

@@ -2,7 +2,7 @@
 /* eslint-disable no-param-reassign */
 /* eslint-disable no-plusplus */
 /* eslint-disable no-confusing-arrow */
-import { Easing, EasingFunction } from '../types'
+import { Easing, EasingFunction } from '../../types'
 
 // no easing, no acceleration
 export const linear: EasingFunction = (t) => t
